@@ -1,0 +1,17 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "main": "Server.js",
+  "scripts": {
+    "dev": "nodemon Server.js",
+    "start": "node Server.js"
+  },
+  "author": "sudharsan",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.7.2",
+    "nodemon": "^3.1.7"
+  }
+}
