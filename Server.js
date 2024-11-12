@@ -4,6 +4,8 @@ const express = require('express');
 //using mongoose 
 const mongoose = require('mongoose');
 
+const cors = require('cors')
+app.use(cors())
 //create an instace of epress
 const app = express();
 
@@ -35,11 +37,14 @@ const todoModel = mongoose.model('todo', totoSchema);
 
 //Create a new todo item
 app.post("/todos" , async (req,res)=>{
+    // data from user 
     const newUser = new todoModel(req.body);
+    // db login 
     try{
         const savedata = await newUser.save();
         res.status(201).json(savedata);
     }
+    // data to frontend 
     catch(err){
         res.status(400).json({message: err.mesage});
     }
@@ -92,7 +97,7 @@ app.put("/todos/:id", async (req,res)=>{
 app.delete("/todos/:id", async (req,res)=>{
     try{
         const id = req.params.id;
-        const deletedata = await todoModel.findByIdAndDelete(id);
+        const deletedata = await todoModel.findByIdAndDelete(id);   
         res.status(204).json({deletedata , message:"deleted sucessfull"});
     }
     catch(err){
