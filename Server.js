@@ -5,11 +5,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const cors = require('cors')
-app.use(cors())
 //create an instace of epress
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 //Sample in-memory storage for todo itemss
 // const todos = [];
